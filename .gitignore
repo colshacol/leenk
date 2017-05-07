@@ -1,0 +1,6 @@
+node_modules/
+public/js
+public/css
+app.bundle.js
+*.map
+.vscode/

@@ -1,0 +1,13 @@
+
+layout(direction) {
+  display: flex;
+  flex-direction: direction;
+}
+
+x-align(alignment) {
+  if (@flex-direction == row) {
+    justify-content: alignment;
+  } else if (@flex-direction == column) {
+    align-items: alignment;
+  }
+}
