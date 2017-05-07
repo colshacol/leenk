@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const createLink = require('./link/create')
 
 const routes = {
   ROOT: '/',
@@ -11,8 +12,6 @@ router.get(routes.ROOT, (req, res) => {
   res.send('/api is what you get.')
 })
 
-router.get(routes.CREATE, (req, res) => {
-  res.send('/create is creating a link.')
-})
+router.put(routes.CREATE, createLink)
 
 module.exports = router

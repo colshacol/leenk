@@ -7,6 +7,25 @@ export default class HomeStore {
     this.inputValue = value
   }
 
+  submitLink = (e) => {
+    if (e.key !== 'Enter') return false
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json')
+
+    fetch('/api/create', {
+      headers,
+      method: 'put',
+      body: JSON.stringify({
+        url: this.inputValue
+      })
+    }).then(res => {
+      console.log(res.status)
+      return res.json()
+    }).then(data => {
+      console.log('Submitted, yo...', data)
+    })
+  }
+
   @computed get inputValidity() {
     return String(
       this.inputValue.length === 0 ||

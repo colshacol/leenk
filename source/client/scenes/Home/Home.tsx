@@ -16,6 +16,7 @@ export default class Home extends React.Component<any, any> {
           placeholder='type here...'
           value={_store.inputValue}
           onChange={_store.updateInputValue}
+          onKeyUp={_store.submitLink}
         />
         <small>Valid: {_store.inputValidity}</small>
       </div>
