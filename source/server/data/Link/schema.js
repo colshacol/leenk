@@ -5,6 +5,7 @@ const linkSchema = mongoose.Schema({
   short: String,
   dateAdded: Number,
   creator: Number,
+  suffix: String,
 })
 
 module.exports = linkSchema

@@ -1,4 +1,7 @@
 import { observable, action, computed } from 'mobx'
+import { findLink } from '../../../shared/api/link/findLink'
+import { createLink } from '../../../shared/api/link/createLink'
+import { serveLink } from '../../../shared/api/link/serveLink'
 
 export default class HomeStore {
   @observable inputValue: string = ''
@@ -7,23 +10,20 @@ export default class HomeStore {
     this.inputValue = value
   }
 
-  submitLink = (e) => {
-    if (e.key !== 'Enter') return false
-    const headers = new Headers()
-    headers.append('Content-Type', 'application/json')
+  goToLink = (e) => e.key === 'Enter' && serveLink(e.target.value)
 
-    fetch('/api/create', {
-      headers,
-      method: 'put',
-      body: JSON.stringify({
-        url: this.inputValue
-      })
-    }).then(res => {
-      console.log(res.status)
-      return res.json()
-    }).then(data => {
-      console.log('Submitted, yo...', data)
-    })
+  createLink = async (e) => {
+    if (e.key === 'Enter') {
+      const result = await createLink(this.inputValue)
+      console.log(result)
+    }
+  }
+
+  findLink = async (e) => {
+    if (e.key === 'Enter') {
+      const link = await findLink(e.target.value)
+      console.log(link)
+    }
   }
 
   @computed get inputValidity() {

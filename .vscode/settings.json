@@ -1,6 +1,8 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "editor.tabSize": 2,
+     "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
     "emmet.syntaxProfiles": {
         "javascript": "html",
         "html": "html"

@@ -16,9 +16,14 @@ export default class Home extends React.Component<any, any> {
           placeholder='type here...'
           value={_store.inputValue}
           onChange={_store.updateInputValue}
-          onKeyUp={_store.submitLink}
+          onKeyUp={_store.createLink}
         />
         <small>Valid: {_store.inputValidity}</small>
+        <p>FIND:</p>
+        <input
+          placeholder='find by suffix'
+          onKeyUp={_store.findLink}
+        />
       </div>
     )
   }
