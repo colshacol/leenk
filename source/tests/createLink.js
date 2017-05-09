@@ -1,6 +1,7 @@
+const chromedriver = require('chromedriver')
 
 const createLink = (browser) => {
-  browser = browser.url('http://localhost:4444')
+  browser = browser.url('http://localhost:4123')
     .pause(500)
     .setValue('input.Shortener', 'www.twitter.com')
     .pause(100)
@@ -18,6 +19,7 @@ const createLink = (browser) => {
     .perform(() => assertions1(browser))
     .pause(100)
     .closeWindow()
+    .end()
 }
 
 const assertions0 = (browser) => {

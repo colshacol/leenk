@@ -19,6 +19,6 @@ server.get('/:suffix', linkServer)
 server.use('/api', apiRouter)
 server.get('*', appServer)
 
-server.listen(4444, () => {
-  console.log(`Listening: http://localhost:4444`)
+server.listen(4123, () => {
+  console.log(`Listening: http://localhost:4123`)
 })
