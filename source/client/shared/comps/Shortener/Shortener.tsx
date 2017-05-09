@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ShortenerStore } from './stores/ShortenerStore'
 import { observer } from 'mobx-react'
+const copy = require('copy-to-clipboard')
 const css = require('./styles/Shortener.styl')
 
 interface Props {
@@ -23,9 +24,12 @@ export class Shortener extends React.Component<Props, any> {
           onChange={_store.updateInputValue}
           value={_store.inputValue}
         />
-        <div className={css.shortRevealer}>
-          <p>{_store.shortenedUrl}</p>
-        </div>
+        {!!_store.shortenedUrl && (
+          <div className={css.shortRevealer}>
+            <p>{_store.shortenedUrl}</p>
+            <button onClick={() => copy(_store.shortenedUrl, { message: 'CLICK TO COPY' })}>COPY</button>
+          </div>
+        )}
       </div>
       
     )
