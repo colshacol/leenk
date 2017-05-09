@@ -1,10 +1,12 @@
 const Link = require('../../data/Link')
 const generateSuffix = require('../../utils/generateSuffix')
+const ensurePrefix = require('../../utils/ensurePrefix')
 
 const createLink = (req, res) => {
+  const url = ensurePrefix(req.body.url)
   const suffix = generateSuffix()
   const link = new Link({
-    long: req.body.url,
+    long: url,
     short: `localhost:4444/${suffix}`,
     dateAdded: Date.now(),
     creator: 0,
