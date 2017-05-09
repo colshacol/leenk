@@ -12,6 +12,7 @@ server.use(bodyParser.urlencoded())
 server.use(bodyParser.json())
 server.use(express.static('public'))
 
+mongoose.Promise = global.Promise
 mongoose.connect('mongodb://localhost:27017')
 
 server.get('/:suffix', linkServer)

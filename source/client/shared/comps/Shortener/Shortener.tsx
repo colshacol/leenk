@@ -37,7 +37,7 @@ export class Shortener extends React.Component<Props, any> {
 
   public static defaultProps = {
     placeholder: 'default placeholder...',
-    className: ''
+    className: 'Shortener'
   }
 }
 

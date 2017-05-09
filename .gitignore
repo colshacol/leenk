@@ -1,4 +1,7 @@
 node_modules/
+reports/
+*debug.log
+n
 public/js
 public/css
 app.bundle.js
