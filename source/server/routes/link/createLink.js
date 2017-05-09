@@ -7,7 +7,7 @@ const createLink = (req, res) => {
   const suffix = generateSuffix()
   const link = new Link({
     long: url,
-    short: `localhost:4444/${suffix}`,
+    short: `localhost:4123/${suffix}`,
     dateAdded: Date.now(),
     creator: 0,
     suffix,
